@@ -2,7 +2,11 @@ require 'rails_helper'
 
 feature 'Visitor view subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create(name: 'Sao Paulo', cnpj: '55.110.650/0001-09',address: 'Alameda Santos')
+    Subsidiary.create(
+      name: 'Sao Paulo', 
+      cnpj: '55.110.650/0001-09',
+      address: 'Alameda Santos'
+    )
 
     visit root_path
     click_on 'Filiais'
@@ -10,6 +14,8 @@ feature 'Visitor view subsidiaries' do
     
 
     expect(page).to have_content('Sao Paulo')
+    expect(page).to have_content('55.110.650/0001-09')
+    expect(page).to have_content('Alameda Santos')
     expect(page).to have_link('Voltar')
   end
 
@@ -25,5 +31,14 @@ feature 'Visitor view subsidiaries' do
     
 
     expect(current_path).to eq root_path
+  end
+  scenario 'Verifica se tem alguma filial' do
+
+    visit root_path
+    click_on 'Filiais'
+
+    
+
+    expect(page).to have_content('Não existem Filiais cadastradas')
   end
 end
