@@ -1,0 +1,5 @@
+<% @subsidiaries.each do |s| %>
+    <h1><%= link_to s.name, subsidiary_path(s.id) %></h1>
+<% end %>
+
+<%= link_to "Voltar", root_path %>
