@@ -1,0 +1,21 @@
+<h1>Registrar nova Filial</h1>
+
+<%= form_for(@subsidiary) do |m| %>
+
+<P>
+    <%= m.label :name, 'Nome' %></br>
+    <%= m.text_field :name  %>
+</p>
+<P>
+    <%= m.label :cnpj, 'CNPJ' %></br>
+    <%= m.text_field :cnpj  %>
+</p>
+<P>
+    <%= m.label :address, 'Endereço' %></br>
+    <%= m.text_field :address  %>
+</p>
+<P>
+    <%= m.submit 'Enviar' %>
+</p>
+
+<% end %>
