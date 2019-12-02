@@ -35,4 +35,13 @@ feature 'Visitor view car category' do
 
     expect(current_path).to eq root_path
   end
+  scenario 'Verifica se tem alguma categoria' do
+
+    visit root_path
+    click_on 'Categorias de Carros'
+
+    
+
+    expect(page).to have_content('Não existem Categorias de carros cadastradas')
+  end
 end

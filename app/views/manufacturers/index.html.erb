@@ -2,6 +2,10 @@
     <h1><%= link_to m.name, manufacturer_path(m.id) %></h1>
 <% end %>
 
+<% if @manufacturers.empty? %>
+    <p> Não existem fabricantes cadastrados</p>
+<% end %>
+
 <p><%= link_to 'Registrar novo fabricante', new_manufacturer_path %></p>
 
 <%= link_to "Voltar", root_path %>
