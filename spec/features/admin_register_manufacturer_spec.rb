@@ -11,4 +11,13 @@ feature 'Admin register manufacturer' do
 
     expect(page).to have_content('Fiat')
   end
+
+  scenario 'and must fill all fields' do
+    visit new_manufacturer_path
+    fill_in 'Nome', with: ""
+    click_on 'Enviar'
+
+    expect(page).to have_content('Você deve preencher todos os campos')
+  end
+
 end
