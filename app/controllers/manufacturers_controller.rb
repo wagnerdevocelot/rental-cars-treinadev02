@@ -5,17 +5,28 @@ class ManufacturersController < ApplicationController
     end
 
     def show
-        @manufacturers = Manufacturer.find(params[:id])
+        @manufacturer = Manufacturer.find(params[:id])
     end
 
     def new
-        @manufacturers = Manufacturer.new
+        @manufacturer = Manufacturer.new
     end
 
     def create
-        @manufacturers = Manufacturer.new(manufacturer_params)
-        @manufacturers.save
-        redirect_to @manufacturers
+        @manufacturer = Manufacturer.new(manufacturer_params)
+        @manufacturer.save
+        redirect_to @manufacturer
+    end
+
+
+    def edit
+        @manufacturer = Manufacturer.find(params[:id])
+    end
+
+    def update
+        @manufacturer = Manufacturer.find(params[:id])
+        @manufacturer.update(manufacturer_params)
+        redirect_to @manufacturer
     end
 
     private
