@@ -29,5 +29,7 @@ feature 'Admin register manufacturer' do
 
     expect(page).to have_content('Fabricante já cadastrado')
   end
-
 end
+
+# dois testes de editar
+

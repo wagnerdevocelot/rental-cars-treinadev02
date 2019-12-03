@@ -1,0 +1,11 @@
+<%= form_for (carcategory) do |f| %>
+  <%= f.label :name, 'Nome' %></br>
+  <%= f.text_field :name %></br>
+  <%= f.label :daily_rate, 'Diária' %></br>
+  <%= f.text_field :daily_rate %></br>
+  <%= f.label :car_insurance, 'Seguro' %></br>
+  <%= f.text_field :car_insurance %></br>
+  <%= f.label :third_party_insurance, 'Seguro de terceiros' %></br>
+  <%= f.text_field :third_party_insurance %></br>
+  <%= f.submit 'Enviar' %></br>
+<% end %>
