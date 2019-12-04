@@ -5,7 +5,7 @@ class SubsidiariesController < ApplicationController
     end
 
     def show
-        @subsidiaries = Subsidiary.find(params[:id])
+        @subsidiary = Subsidiary.find(params[:id])
     end
 
     def new
@@ -17,6 +17,18 @@ class SubsidiariesController < ApplicationController
         @subsidiary.save
         redirect_to @subsidiary
     end
+
+    def edit
+        @subsidiary = Subsidiary.find(params[:id])
+    end
+
+    def update
+        @subsidiary = Subsidiary.find(params[:id])
+        @subsidiary.update(subsidiary_params)
+        redirect_to @subsidiary
+    end
+
+
 
     private
 

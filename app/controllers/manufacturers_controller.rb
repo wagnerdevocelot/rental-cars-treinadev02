@@ -29,7 +29,6 @@ class ManufacturersController < ApplicationController
     def update
         @manufacturer = Manufacturer.find(params[:id])
         @manufacturer.update(manufacturer_params)
-        flash[:notice] = 'Fabricante atualizado com sucesso'
         redirect_to @manufacturer
     end
 

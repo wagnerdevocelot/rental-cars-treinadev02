@@ -1,15 +1,5 @@
 <h1>Registrar novo Fabricante</h1>
 
 
-
-<%= form_for(@manufacturer) do |m| %>
-
-<P>
-    <%= m.label :name, 'Nome' %></br>
-    <%= m.text_field :name  %>
-</p>
-<P>
-    <%= m.submit 'Enviar' %>
-</p>
-
-<% end %>
+<%= render partial: "formmanufacturer", locals: {manufacturer: @manufacturer} %></br>
+<%= link_to 'Voltar', root_path %>

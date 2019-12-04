@@ -1,0 +1,10 @@
+<%= form_for @manufacturer do |m| %>
+
+<P>
+    <%= m.label :name, 'Nome' %></br>
+    <%= m.text_field :name  %>
+</p>
+<P>
+    <%= m.submit 'Enviar' %>
+</p>
+<% end %>

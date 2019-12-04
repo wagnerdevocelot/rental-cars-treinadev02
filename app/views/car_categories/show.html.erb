@@ -4,4 +4,6 @@
 <p>Seguro do Automóvel: <%= @carcategory.car_insurance %></p>
 <p>Seguro Terceirizado: <%= @carcategory.third_party_insurance %></p>
 
+<%= link_to 'Editar', edit_car_category_path(@carcategory) %></br>
+
 <%= link_to "Voltar", root_path %>
