@@ -11,6 +11,8 @@ feature 'Admin cadastra nova categoria' do
     fill_in 'Seguro', with: '39'
     fill_in 'Seguro de terceiros', with: '14'
     click_on 'Enviar'
+    visit root_path
+    click_on 'Categorias de Carros'
     click_on 'SUV'
 
     expect(page).to have_content('SUV')

@@ -1,0 +1,16 @@
+<% if @client.errors.any? %>
+  <% @client.errors.full_messages.each do |message| %>
+    <p><%= message %></p></br>
+  <% end %>
+<% end %>
+
+
+<%= form_for (client) do |f| %>
+  <%= f.label :name, 'Nome' %></br>
+  <%= f.text_field :name %></br>
+  <%= f.label :cpf, 'CPF' %></br>
+  <%= f.text_field :cpf %></br>
+  <%= f.label :email, 'E-Mail' %></br>
+  <%= f.text_field :email %></br>
+  <%= f.submit 'Enviar' %></br>
+<% end %>

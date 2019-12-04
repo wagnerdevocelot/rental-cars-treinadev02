@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin register manufacturer' do
-  xscenario 'successfully' do
+  scenario 'successfully' do
     visit root_path
     click_on 'Fabricantes'
     click_on 'Registrar novo fabricante'
@@ -12,22 +12,22 @@ feature 'Admin register manufacturer' do
     expect(page).to have_content('Fiat')
   end
 
-  xscenario 'and must fill all fields' do
+  scenario 'and must fill all fields' do
     visit new_manufacturer_path
     fill_in 'Nome', with: ""
     click_on 'Enviar'
 
-    expect(page).to have_content('Você deve preencher todos os campos')
+    expect(page).to have_content("Name can't be blank")
   end
 
-  xscenario 'name must be unique' do
+  scenario 'name must be unique' do
     Manufacturer.create!(name: 'FIAT')
 
     visit new_manufacturer_path
     fill_in 'Nome', with: "FIAT"
     click_on 'Enviar'
 
-    expect(page).to have_content('Fabricante já cadastrado')
+    expect(page).to have_content('Name has already been taken')
   end
 end
 

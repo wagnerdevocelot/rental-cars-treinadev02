@@ -12,6 +12,6 @@ feature 'Admin edits manufacturer' do
     click_on 'Enviar'
 
     expect(page).to have_content('Honda')
-    expect(page).to have_content('Fabricante atualizado com sucesso')
+    expect(page).to have_content('Fabricante editado com sucesso!')
   end
 end
