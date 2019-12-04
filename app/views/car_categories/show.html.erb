@@ -5,5 +5,5 @@
 <p>Seguro Terceirizado: <%= @carcategory.third_party_insurance %></p>
 
 <%= link_to 'Editar', edit_car_category_path(@carcategory) %></br>
-
-<%= link_to "Voltar", root_path %>
+<%= link_to 'Deletar', car_category_path(@carcategory), method: :delete, data:{confirm: "Deseja deletar esta Categoria?"}%></br>
+<%= link_to "Voltar", root_path %></br>

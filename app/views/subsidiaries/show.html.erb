@@ -4,5 +4,7 @@
 <p>Endereço - <%= @subsidiary.address %></p>
 
 <%= link_to 'Editar', edit_subsidiary_path(@subsidiary) %></br>
+<%= link_to 'Deletar', subsidiary_path(@subsidiary), method: :delete, data:{confirm: "Deseja deletar esta Filial?"}%></br>
+
 
 <%= link_to "Voltar", root_path %>

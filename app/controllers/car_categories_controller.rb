@@ -12,8 +12,12 @@ class CarCategoriesController < ApplicationController
     end
 
     def create
-        @carcategory = CarCategory.create(category_params)
-        redirect_to @carcategory
+        @carcategory = CarCategory.new(category_params)
+        if @carcategory.save
+            redirect_to @carcategory
+        else
+            render :new
+        end
     end
 
     def edit
@@ -22,7 +26,16 @@ class CarCategoriesController < ApplicationController
 
     def update
         @carcategory = CarCategory.find(params[:id])
-        @carcategory.update(category_params)
+        if @carcategory.update(category_params)
+            redirect_to @carcategory
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @carcategory = CarCategory.find(params[:id])
+        @carcategory.destroy
         redirect_to @carcategory
     end
 

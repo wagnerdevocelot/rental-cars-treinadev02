@@ -1,3 +1,11 @@
+<% if @subsidiary.errors.any? %>
+  <% @subsidiary.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
+
 <%= form_for (subsidiary) do |m| %>
 
 <P>

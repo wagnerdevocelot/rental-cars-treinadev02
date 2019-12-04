@@ -1,3 +1,10 @@
+<% if @carcategory.errors.any? %>
+  <% @carcategory.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <%= form_for (carcategory) do |f| %>
   <%= f.label :name, 'Nome' %></br>
   <%= f.text_field :name %></br>
