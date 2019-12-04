@@ -15,7 +15,7 @@ class SubsidiariesController < ApplicationController
     def create
         @subsidiary = Subsidiary.new(subsidiary_params)
         if @subsidiary.save
-            redirect_to @subsidiary
+            redirect_to @subsidiary, notice:"Filial cadastrada com sucesso!"
         else
             render :new
         end
@@ -28,7 +28,7 @@ class SubsidiariesController < ApplicationController
     def update
         @subsidiary = Subsidiary.find(params[:id])
         if @subsidiary.update(subsidiary_params)
-            redirect_to @subsidiary
+            redirect_to @subsidiary, notice:"Filial editada com sucesso!"
         else
             render :edit
         end

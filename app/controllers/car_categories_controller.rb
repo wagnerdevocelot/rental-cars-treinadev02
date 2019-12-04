@@ -14,7 +14,7 @@ class CarCategoriesController < ApplicationController
     def create
         @carcategory = CarCategory.new(category_params)
         if @carcategory.save
-            redirect_to @carcategory
+            redirect_to @carcategory, notice:"Categoria cadastrada com sucesso!"
         else
             render :new
         end
@@ -26,8 +26,8 @@ class CarCategoriesController < ApplicationController
 
     def update
         @carcategory = CarCategory.find(params[:id])
-        if @carcategory.update(category_params)
-            redirect_to @carcategory
+        if @carcategory.update(category_params) 
+            redirect_to @carcategory, notice:"Categoria editada com sucesso!"
         else
             render :edit
         end

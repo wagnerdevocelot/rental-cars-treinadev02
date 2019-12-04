@@ -10,8 +10,8 @@
   </head>
 
   <body>
-  <% if notice %>
-    <%= notice %>
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
   <% end%>  
     <%= yield %>
   </body>

@@ -15,7 +15,7 @@ class ManufacturersController < ApplicationController
     def create
         @manufacturer = Manufacturer.new(manufacturer_params)
         if @manufacturer.save
-            redirect_to @manufacturer
+            redirect_to @manufacturer, notice:"Fabricante cadastrado com sucesso!"
         else
             render :new
         end
@@ -29,7 +29,7 @@ class ManufacturersController < ApplicationController
     def update
         @manufacturer = Manufacturer.find(params[:id])
         if @manufacturer.update(manufacturer_params)
-            redirect_to @manufacturer
+            redirect_to @manufacturer, notice:"Fabricante editado com sucesso!"
         else
             render :edit
         end

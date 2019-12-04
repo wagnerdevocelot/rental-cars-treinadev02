@@ -1,6 +1,6 @@
 <% if @subsidiary.errors.any? %>
   <% @subsidiary.errors.full_messages.each do |message| %>
-    <%= message %>
+    <p><%= message %></p></br>
   <% end %>
 <% end %>
 
