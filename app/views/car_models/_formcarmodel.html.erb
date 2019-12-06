@@ -1,0 +1,38 @@
+<% if @carmodel.errors.any? %>
+  <% @carmodel.errors.full_messages.each do |message| %>
+    <p><%= message %></p></br>
+  <% end %>
+<% end %>
+
+
+<%= form_for (car_model) do |m| %>
+
+<P>
+    <%= m.label :name, 'Nome' %></br>
+    <%= m.text_field :name  %>
+</p>
+<P>
+    <%= m.label :year, 'Ano' %></br>
+    <%= m.text_field :year  %>
+</p>
+<P>
+    <%= m.label :motorization, 'Motorização' %></br>
+    <%= m.text_field :motorization  %>
+</p>
+<P>
+    <%= m.label :fuel_type, 'Combustivel' %></br>
+    <%= m.text_field :fuel_type  %>
+</p>
+<div>
+   <%= m.label :manufacturer_id, 'Fabricantes' %>
+   <%= m.collection_select(:manufacturer_id, @manufacturers, :id, :name) %>
+</div>
+<div>
+   <%= m.label :car_category_id, 'Categorias' %>
+   <%= m.collection_select(:car_category_id, @carcategories, :id, :name) %>
+</div>
+<P>
+    <%= m.submit 'Enviar' %>
+</p>
+
+<% end %>

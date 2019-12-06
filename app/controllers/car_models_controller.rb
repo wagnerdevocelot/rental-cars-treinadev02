@@ -8,7 +8,7 @@ class CarModelsController < ApplicationController
     end
 
     def new
-        @carmodels = CarModel.new
+        @carmodel = CarModel.new
         @carcategories = CarCategory.all
         @manufacturers = Manufacturer.all
     end
@@ -18,12 +18,16 @@ class CarModelsController < ApplicationController
         if @carmodel.save
             redirect_to @carmodel, notice:"Modelo cadastrado com sucesso!"
         else
+            @carcategories = CarCategory.all
+            @manufacturers = Manufacturer.all
             render :new
         end
     end
 
     def edit
         @carmodel = CarModel.find(params[:id])
+        @carcategories = CarCategory.all
+        @manufacturers = Manufacturer.all
     end
 
     def update
@@ -31,6 +35,8 @@ class CarModelsController < ApplicationController
         if @carmodel.update(carmodel_params) 
             redirect_to @carmodel, notice:"Modelo editado com sucesso!"
         else
+            @carcategories = CarCategory.all
+            @manufacturers = Manufacturer.all
             render :edit
         end
     end
