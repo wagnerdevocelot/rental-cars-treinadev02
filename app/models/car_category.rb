@@ -4,4 +4,5 @@ class CarCategory < ApplicationRecord
     validates :name, uniqueness:true
 
     has_many :car_models
+    has_many :rentals
 end

@@ -1,0 +1,10 @@
+<h1>Agendamentos</h1>
+<p>Data Inicial: <%= @rental.start_date %></p>
+<p>Data Final: <%= @rental.end_date %></p>
+<P>Cliente: <%= @rental.client.name%>
+<p>Categoria:  <%= @rental.car_category.name %></p>
+
+
+<p><%= link_to 'Editar', edit_rental_path(@rental) %></p>
+<p><%= link_to 'Deletar', rental_path(@rental), method: :delete, data: { confirm: "Deseja excluir esse agentamento?" } %></p>
+<p><%= link_to 'Voltar', root_path %></p>

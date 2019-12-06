@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
     def destroy
         @client = Client.find(params[:id])
         @client.destroy
-        redirect_to @client
+        redirect_to @client, notice: "Cliente excluido com Sucesso!"
     end
 
     private

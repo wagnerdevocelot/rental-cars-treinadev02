@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :car_categories
   resources :clients
   resources :car_models
+  resources :rentals
 end
