@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Admin register manufacturer' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
+
     visit root_path
     click_on 'Fabricantes'
     click_on 'Registrar novo fabricante'
@@ -13,6 +17,10 @@ feature 'Admin register manufacturer' do
   end
 
   scenario 'and must fill all fields' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
+
     visit new_manufacturer_path
     fill_in 'Nome', with: ""
     click_on 'Enviar'
@@ -21,6 +29,10 @@ feature 'Admin register manufacturer' do
   end
 
   scenario 'name must be unique' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
+
     Manufacturer.create!(name: 'FIAT')
 
     visit new_manufacturer_path
@@ -29,6 +41,19 @@ feature 'Admin register manufacturer' do
 
     expect(page).to have_content('Name has already been taken')
   end
+
+  scenario 'precisa estar logado' do
+    visit new_manufacturer_path
+
+    expect(current_path).to eq new_user_session_path
+  end
+
+  xscenario 'precisa estar logado' do
+    visit root_path
+
+    expect(page).not_to have_link('Fabricantes') 
+  end
+  
 end
 
 # dois testes de editar
