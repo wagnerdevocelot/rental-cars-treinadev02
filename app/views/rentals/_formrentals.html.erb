@@ -1,6 +1,6 @@
 <% if @rental.errors.any? %>
   <% @rental.errors.full_messages.each do |message| %>
-    <%= message %>
+    <p><%= message %></p>
   <% end %>
 <% end %>
 

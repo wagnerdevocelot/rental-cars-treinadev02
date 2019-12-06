@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-xfeature 'Admin register client' do
+feature 'Admin register client' do
   scenario 'successfully' do
     visit root_path
     click_on 'Clientes'
@@ -35,7 +35,6 @@ xfeature 'Admin register client' do
 
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Cpf can't be blank")
-    expect(page).to have_content("Cpf is too short (minimum is 11 characters)")
     expect(page).to have_content("Email can't be blank")
   end
 end
