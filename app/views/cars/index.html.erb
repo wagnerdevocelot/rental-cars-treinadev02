@@ -8,5 +8,7 @@
 <% end %>
 
 <% @cars.each do |car| %>
-    <p><%= link_to car.license_plate, car_path(car) %></p>
+    <p><%= link_to "#{car.car_model.name}: #{car.license_plate}", car_path(car) %></p>
 <% end %>
+
+
