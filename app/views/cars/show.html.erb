@@ -1,0 +1,13 @@
+<h3>Carros</h3>
+
+<h1>Modelo: <%= @car.car_model_id %></h1>
+<p>Placa: <%= @car.license_plate %></p>
+<p>Cor: <%= @car.color %></p>
+<p>Modelo: <%= @car.car_model.name %></p>
+<p>Quilometragem: <%= @car.mileage %></p>
+<p>Filial: <%= @car.subsidiary.name %></p>
+
+
+<p><%= link_to 'Voltar', root_path %></p>
+<p><%= link_to 'Editar', edit_car_path(@car) %></p>
+<p><%= link_to 'Deletar', car_path(@car), method: :delete, data: { confirm: "Confirma exclusão do Carro: #{@car.license_plate}?" } %></p>
