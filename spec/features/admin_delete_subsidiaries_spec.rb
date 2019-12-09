@@ -10,12 +10,12 @@ feature 'Admin delete subsidiaries ' do
     visit root_path
     click_on 'Filiais'
     click_on 'Sao Paulo'
-        
-    expect(page).to have_content('Sao Paulo')
-    expect(page).to have_content('05.370.840/0001-07')
-    expect(page).to have_content('Rua da filial 1')
-    expect(page).to have_link('Voltar')
-    expect(page).to have_link('Deletar')
+    click_on 'Deletar'    
+
+
+    expect(current_path).to eq subsidiaries_path
+    expect(page).not_to have_link('Sao Paulo')
+    expect(page).to have_content('Não existem Filiais cadastradas')
       
   end
 

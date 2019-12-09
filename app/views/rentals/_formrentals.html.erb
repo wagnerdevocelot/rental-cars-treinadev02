@@ -9,22 +9,18 @@
   <%= f.label :start_date, 'Data Inicial' %>
   <%= f.text_field :start_date %>
 </p>
-
 <p>  
   <%= f.label :end_date, 'Data Final' %>
   <%= f.text_field :end_date %>
 </p>
-
 <div>
   <%= f.label :car_category_id, 'Categoria' %>
   <%= f.collection_select(:car_category_id, @carcategories, :id, :name) %>
 </div>
-
 <div>  
   <%= f.label :client_id, 'Cliente' %>
   <%= f.collection_select(:client_id, @clients, :id, :name) %>
 </div>
-
 <p>  
   <%= f.submit 'Enviar' %>
 </p>  
