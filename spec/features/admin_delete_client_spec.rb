@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin delete client ' do
   scenario 'delete with success' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Client.create(
         name: 'Bruno', 
         cpf: '12343245676', 

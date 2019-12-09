@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin register client' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     visit root_path
     click_on 'Clientes'
     click_on 'Registrar novo Cliente'
@@ -17,6 +20,9 @@ feature 'Admin register client' do
   end
 
   scenario 'and must fill all fields' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     visit new_client_path
     fill_in 'Nome', with: ""
     click_on 'Enviar'
@@ -25,6 +31,9 @@ feature 'Admin register client' do
   end
 
   scenario 'name must be unique' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Client.create!(name: 'FIAT', cpf: '56756756756', email: 'jesus@mail')
 
     visit new_client_path

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Visitor view clients' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Client.create(
       name: 'jao', 
       cpf: '45645645645',
@@ -20,6 +23,9 @@ feature 'Visitor view clients' do
   end
 
   scenario 'and return to home page' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Client.create(
         name: 'jao', 
         cpf: '45645645645',
@@ -35,6 +41,9 @@ feature 'Visitor view clients' do
     expect(current_path).to eq root_path
   end
   scenario 'Verifica se tem algum cliente' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
 
     visit root_path
     click_on 'Clientes'

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Visitor view subsidiaries' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Subsidiary.create(
       name: 'Sao Paulo', 
       cnpj: '55.110.650/0001-09',
@@ -20,6 +23,9 @@ feature 'Visitor view subsidiaries' do
   end
 
   scenario 'and return to home page' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Subsidiary.create(
       name: 'Sao Paulo', 
       cnpj: '55.110.650/0001-09',
@@ -35,6 +41,9 @@ feature 'Visitor view subsidiaries' do
     expect(current_path).to eq root_path
   end
   scenario 'Verifica se tem alguma filial' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
 
     visit root_path
     click_on 'Filiais'

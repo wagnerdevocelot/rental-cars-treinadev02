@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin cadastra nova filial' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova Filial'

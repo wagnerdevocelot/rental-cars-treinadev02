@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     Subsidiary.create(name: 'Sao Paulo', cnpj: '05.370.840/0001-07', address: 'Rua da filial 1')
 
     visit root_path

@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Visitor view car category' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     CarCategory.create(
         name: 'Picapes', 
         daily_rate: '68.00', 
@@ -20,6 +23,9 @@ feature 'Visitor view car category' do
   end
 
   scenario 'and return to home page' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     CarCategory.create(
         name: 'Picapes', 
         daily_rate: '68.00', 
@@ -36,6 +42,9 @@ feature 'Visitor view car category' do
     expect(current_path).to eq root_path
   end
   scenario 'Verifica se tem alguma categoria' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
 
     visit root_path
     click_on 'Categorias de Carros'

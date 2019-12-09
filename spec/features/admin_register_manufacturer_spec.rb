@@ -46,15 +46,7 @@ feature 'Admin register manufacturer' do
     visit new_manufacturer_path
 
     expect(current_path).to eq new_user_session_path
-  end
-
-  xscenario 'precisa estar logado' do
-    visit root_path
-
-    expect(page).not_to have_link('Fabricantes') 
-  end
-  
+  end  
 end
 
-# dois testes de editar
 

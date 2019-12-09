@@ -2,6 +2,9 @@ require 'rails_helper'
 
 feature 'Admin edits category' do
   scenario 'successfully' do
+    admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
+
+    login_as(admin, scope: :user)
     CarCategory.create(
         name: 'Picapes', 
         daily_rate: 68.00, 
