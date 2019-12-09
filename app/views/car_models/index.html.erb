@@ -4,6 +4,8 @@
     <h1><%= link_to c.name, car_model_path(c.id) %></h1>
 <% end %>
 
-<p><%= link_to 'Registrar novo modelo', new_car_model_path %></p>
+<% if current_user.admin? %>
+    <p><%= link_to 'Registrar novo modelo', new_car_model_path %></p>
+<% end %>    
 
 <p><%= link_to "Voltar", root_path %></p>

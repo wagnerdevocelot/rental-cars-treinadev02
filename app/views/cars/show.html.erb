@@ -8,5 +8,8 @@
 
 
 <p><%= link_to 'Voltar', root_path %></p>
-<p><%= link_to 'Editar', edit_car_path(@car) %></p>
-<p><%= link_to 'Deletar', car_path(@car), method: :delete, data: { confirm: "Confirma exclusão do Carro: #{@car.license_plate}?" } %></p>
+
+<% if current_user.admin? %>
+    <p><%= link_to 'Editar', edit_car_path(@car) %></p>
+    <p><%= link_to 'Deletar', car_path(@car), method: :delete, data: { confirm: "Confirma exclusão do Carro: #{@car.license_plate}?" } %></p>
+<% end %>    

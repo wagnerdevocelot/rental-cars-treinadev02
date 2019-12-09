@@ -4,14 +4,15 @@
   <% end %>
 <% end %>
 
+<% if current_user.admin? %>
+  <%= form_for (manufacturer) do |m| %>
 
-<%= form_for (manufacturer) do |m| %>
-
-<P>
-    <%= m.label :name, 'Nome' %></br>
-    <%= m.text_field :name  %>
-</p>
-<P>
-    <%= m.submit 'Enviar' %>
-</p>
+  <P>
+      <%= m.label :name, 'Nome' %></br>
+      <%= m.text_field :name  %>
+  </p>
+  <P>
+      <%= m.submit 'Enviar' %>
+  </p>
+  <% end %>
 <% end %>

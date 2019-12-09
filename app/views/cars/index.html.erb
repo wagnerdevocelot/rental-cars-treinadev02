@@ -1,6 +1,8 @@
 <h1>Carros</h1>
 
-<p><%= link_to 'Registrar novo carro', new_car_path %></p>
+<% if current_user.admin? %>
+    <p><%= link_to 'Registrar novo carro', new_car_path %></p>
+<% end %>
 <p><%= link_to 'Voltar', root_path %></p>
 
 <% if @cars.empty? %>

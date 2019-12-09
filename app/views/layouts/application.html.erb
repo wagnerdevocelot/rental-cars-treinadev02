@@ -16,6 +16,9 @@
   <% else %>
     <%= link_to 'Entrar', new_user_session_path %>
   <% end %>
+  <% unless user_signed_in? %>
+    <%= link_to 'Registrar', new_user_registration_path %>
+  <% end %>
   <% if flash[:notice] %>
     <%= flash[:notice] %>
   <% end%>  

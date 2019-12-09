@@ -2,13 +2,21 @@
 
 <p> Bem vindo ao sistema de gestão de locação </p>
 
-<p><%= link_to 'Fabricantes',  manufacturers_path %></p>
-<p><%= link_to 'Filiais',  subsidiaries_path %></p>
-<p><%= link_to 'Categorias de Carros',  car_categories_path %></p>
-<p><%= link_to 'Modelos de Carros',  car_models_path %></p>
-<p><%= link_to 'Carros', cars_path %></p>
-<p><%= link_to 'Clientes',  clients_path %></p>
-<p><%= link_to 'Agendar Locação', rentals_path %></p>
+<% if user_signed_in? %>
+    <p>Olá <%= current_user.email %></p>
+    <% if current_user.employee? %>
+        <p><%= link_to 'Clientes',  clients_path %></p>
+        <p><%= link_to 'Agendar Locação', rentals_path %></p>
+    <% elsif current_user.admin? %>
+        <p><%= link_to 'Fabricantes',  manufacturers_path %></p>
+        <p><%= link_to 'Filiais',  subsidiaries_path %></p>
+        <p><%= link_to 'Categorias de Carros',  car_categories_path %></p>
+        <p><%= link_to 'Modelos de Carros',  car_models_path %></p>
+        <p><%= link_to 'Carros', cars_path %></p>
+        <p><%= link_to 'Clientes',  clients_path %></p>
+        <p><%= link_to 'Agendar Locação', rentals_path %></p>
+    <% end %>
+<% end %>
 
 
 
