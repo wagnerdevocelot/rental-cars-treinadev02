@@ -11,6 +11,4 @@ class Rental < ApplicationRecord
       errors.add(:end_date, 'deve ser maior que data de inicio')
     end
   end
-
-
 end
