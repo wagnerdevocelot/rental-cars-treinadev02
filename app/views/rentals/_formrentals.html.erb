@@ -21,6 +21,10 @@
   <%= f.label :client_id, 'Cliente' %>
   <%= f.collection_select(:client_id, @clients, :id, :name) %>
 </div>
+<div>  
+  <%= f.label :subsidiary_id, 'Filial' %>
+  <%= f.collection_select(:subsidiary_id, @subsidiaries, :id, :name) %>
+</div>
 <p>  
   <%= f.submit 'Enviar' %>
 </p>  

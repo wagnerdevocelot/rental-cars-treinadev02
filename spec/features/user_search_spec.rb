@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'user search rental' do
-    scenario 'sucessfully' do
+    xscenario 'sucessfully' do
         user = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
 
         category = CarCategory.create(

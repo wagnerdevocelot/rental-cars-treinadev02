@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   enum role: [ :employee, :admin ]
 
+  has_many :rentals
+
 end

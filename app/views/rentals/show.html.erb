@@ -3,6 +3,7 @@
 <p>Data Final: <%= @rental.end_date.strftime('%d/%m/%Y') %></p>
 <P>Cliente: <%= @rental.client.name%>
 <p>Categoria:  <%= @rental.car_category.name %></p>
+<p>Filial:  <%= @rental.subsidiary.name %></p>
 
 
 <p><%= link_to 'Editar', edit_rental_path(@rental) %></p>

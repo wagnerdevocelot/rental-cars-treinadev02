@@ -9,20 +9,27 @@ class RentalsController < ApplicationController
         @rental = Rental.find(params[:id])
     end
 
+
+    def search
+        @rental = Rental.where("title LIKE ?", "%" + params[:q] + "%")
+    end
+
     def new
         @rental = Rental.new
         @clients = Client.all
         @carcategories = CarCategory.all
+        @subsidiaries = Subsidiary.all
     end
 
     def create
-        @rental = Rental.new(rental_params)
+        @rental = current_user.rentals.new(rental_params)
         if @rental.save
             flash[:notice] = 'Locação cadastrada com Sucesso!'
             redirect_to @rental
         else
             @clients = Client.all
             @carcategories = CarCategory.all
+            @subsidiaries = Subsidiary.all
             flash[:alert] = 'Locação não cadastrada'
             render :new
         end
@@ -41,6 +48,7 @@ class RentalsController < ApplicationController
         else
             @clients = Client.all
             @carcategories = CarCategory.all
+            @subsidiaries = Subsidiary.all
             render :edit
         end
     end
@@ -54,7 +62,7 @@ class RentalsController < ApplicationController
 private
 
     def rental_params
-       params.require(:rental).permit(:start_date, :end_date, :client_id, :car_category_id)
+       params.require(:rental).permit(:start_date, :end_date, :client_id, :car_category_id, :subsidiary_id, :user_id)
     end
 
 end

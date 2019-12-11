@@ -1,10 +1,17 @@
 require 'rails_helper'
 
-feature 'Admin cadastra nova filial' do
+feature 'Admin cadastra nova locação' do
   scenario 'successfully' do
     admin = User.create!(email: 'wagner@mail', password: '12345678', role: :admin)
 
     login_as(admin, scope: :user)
+
+    subsidiary = Subsidiary.create(
+      name: 'Sao Paulo', 
+      cnpj: '05.370.840/0001-07', 
+      address: 'Rua da filial 1'
+      )              
+
 
     category = CarCategory.create(
         name: 'Perua', 
@@ -34,6 +41,7 @@ feature 'Admin cadastra nova filial' do
     expect(page).to have_content('28/12/2019')
     expect(page).to have_content(category.name)
     expect(page).to have_content(client.name)
+    expect(page).to have_content(subsidiary.name)
 
 
 
