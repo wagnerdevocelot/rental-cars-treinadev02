@@ -11,7 +11,9 @@ class RentalsController < ApplicationController
 
 
     def search
-        @rental = Rental.where("title LIKE ?", "%" + params[:q] + "%")
+        @rentals = Rental.where('reservation_code like ?', "%#{params[:q]}%")
+
+        render :index
     end
 
     def new
@@ -62,7 +64,7 @@ class RentalsController < ApplicationController
 private
 
     def rental_params
-       params.require(:rental).permit(:start_date, :end_date, :client_id, :car_category_id, :subsidiary_id, :user_id)
+       params.require(:rental).permit(:start_date, :end_date, :client_id, :reservation_code, :car_category_id, :subsidiary_id, :user_id)
     end
 
 end

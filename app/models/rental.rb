@@ -16,4 +16,10 @@ class Rental < ApplicationRecord
       errors.add(:end_date, 'deve ser maior que a Data de Inicio')
     end
   end
+
+
+  def cars_avaiable?
+    car_model = CarModel.where(car_category: car_category)
+    Car.where(car_model: car_models).count > 0
+  end
 end
